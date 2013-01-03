@@ -1,4 +1,7 @@
 node localhost {
+  
+  # See http://docs.puppetlabs.com/references/latest/type.html
+  # for type references
 
   exec { 'enable-wheel-in-sudoers':
     command   => 'patch sudoers </etc/puppet/files/etc/sudoers.patch',
@@ -14,4 +17,5 @@ node localhost {
                 'wheel',
               ],
   }
+  
 }
