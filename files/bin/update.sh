@@ -2,7 +2,7 @@
 
 if [ $(id -u) -ne 0 ];
 then
-  echo "You must be root to run this script. Exiting."
+  echo "You must be root to run this script ($0). Exiting."
   exit 1
 fi
 

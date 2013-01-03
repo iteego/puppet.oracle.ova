@@ -2,7 +2,7 @@
 
 if [ $(id -u) -ne 0 ];
 then
-  echo "You must be root to run this script. Exiting."
+  echo "You must be root to run this script ($0). Exiting."
   exit 1
 fi
 
@@ -13,3 +13,5 @@ yum -y install puppet git
 
 rm -fR /etc/puppet
 env GIT_SSL_NO_VERIFY=true git clone https://github.com/iteego/puppet.oracle.ova.git /etc/puppet
+
+/etc/puppet/files/bin/update.sh
