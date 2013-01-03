@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-PID=$(cat $PID_FILE 2>/dev/null)
+PID=$(cat $PID_FILE 2>/dev/null) || true
 if kill -0 $PID &>/dev/null; then
   echo "Another $0 is already running ($PID). Exiting."
   exit 2
