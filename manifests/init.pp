@@ -81,7 +81,7 @@ node localhost {
   exec { 'mkfs-extra-disk':
     command   => "mkfs -t ext4 /dev/hdd",
     logoutput => true,
-    path      => ['/bin', '/usr/bin', '/usr/sbin'],
+    path      => ['/bin', '/sbin'],
     unless    => "grep -q '/dev/hdd' /etc/mtab",
     notify    => Mount['extra-disk-mount'],
   }
