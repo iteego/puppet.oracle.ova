@@ -10,7 +10,7 @@ node localhost {
 
   user { 'oracle':
     groups => [
-                'davfs',
+                'davfs2',
                 'wheel',
               ],
   }
