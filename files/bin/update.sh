@@ -1,9 +1,19 @@
 #!/bin/bash -e
 
+PID_FILE=/var/run/update.pid
+
 if [ $(id -u) -ne 0 ];
 then
   echo "You must be root to run this script ($0). Exiting."
   exit 1
+fi
+
+PID=$(cat $PID_FILE 2>/dev/null)
+kill -0 $PID &>/dev/null
+if [ $? -eq 0 ];
+then
+  echo "Another $0 is already running ($PID). Exiting."
+  exit 2
 fi
 
 export GIT_SSL_NO_VERIFY=true
