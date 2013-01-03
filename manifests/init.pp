@@ -78,26 +78,33 @@ node localhost {
   }
 
 
+  # Ensure that our extra disk is built and mounted
+  $extra_disk_device='/dev/hdd'
+  $extra_disk_fs_type='ext4'
+  $extra_disk_mount_point='/u00'
+  $extra_disk_user='oracle'
+  $extra_disk_group='oracle'
+
   exec { 'mkfs-extra-disk':
-    command   => "mkfs -t ext4 /dev/hdd",
+    command   => "mkfs -t $extra_disk_fs_type $extra_disk_device",
     logoutput => true,
     path      => ['/bin', '/sbin'],
-    unless    => "grep -q '/dev/hdd' /etc/mtab",
+    unless    => "blkid | grep $extra_disk_device | grep -q $extra_disk_fs_type",
     notify    => Mount['extra-disk-mount'],
   }
 
   file { 'extra-disk-mount-point':
-    path      => "/u00",
     ensure    => directory,
-    owner     => oracle,
-    group     => oracle,
+    path      => $extra_disk_mount_point,
+    owner     => $extra_disk_user,
+    group     => $extra_disk_group,
   }
 
   mount { 'extra-disk-mount':
     ensure    => mounted,
-    name      => '/u00',
-    device    => '/dev/sdd',
-    fstype    => 'ext4',
+    name      => $extra_disk_mount_point,
+    device    => $extra_disk_device,
+    fstype    => $extra_disk_fs_type,
     remounts  => true,
     atboot    => true,
   }
