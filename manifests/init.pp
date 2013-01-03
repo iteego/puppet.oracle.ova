@@ -60,8 +60,10 @@ node localhost {
   }
 
   file { '/etc/profile.d/groovy.sh':
-    content => "export GROOVY_HOME=$groovy_root/latest;
-                export PATH=$GROOVY_HOME/bin:\$PATH",
+    content => "
+                 export GROOVY_HOME=$groovy_root/latest
+                 export PATH=\$GROOVY_HOME/bin:\$PATH
+               ",
   }
 
   user { 'oracle':
