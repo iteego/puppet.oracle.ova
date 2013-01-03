@@ -76,5 +76,30 @@ node localhost {
   file { '/etc/profile.d/path.sh':
     content => 'export PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH',
   }
+
+
+  exec { 'mkfs-extra-disk':
+    command   => "mkfs -t ext4 /dev/hdd",
+    logoutput => true,
+    path      => ['/bin', '/usr/bin', '/usr/sbin'],
+    unless    => "grep -q '/dev/hdd' /etc/mtab",
+    notify    => Mount['extra-disk-mount'],
+  }
+
+  file { 'extra-disk-mount-point':
+    path      => "/u00",
+    ensure    => directory,
+    owner     => oracle,
+    group     => oracle,
+  }
+
+  mount { 'extra-disk-mount':
+    ensure    => mounted,
+    name      => '/u00',
+    device    => '/dev/sdd',
+    fstype    => 'ext4',
+    remounts  => true,
+    atboot    => true,
+  }
   
 }
