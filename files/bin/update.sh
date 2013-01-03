@@ -20,5 +20,5 @@ export GIT_SSL_NO_VERIFY=true
 cd /etc/puppet
 git reset --hard &>/dev/null
 git clean -df &>/dev/null
-git pull origin master 
+git pull origin master | grep -v From | grep -v FETCH_HEAD
 puppet apply /etc/puppet/manifests/init.pp
