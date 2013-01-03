@@ -16,7 +16,7 @@ node localhost {
     cwd       => '/boot/grub',
     logoutput => true,
     path      => ['/bin', '/usr/bin', '/usr/sbin'],
-    unless    => 'grep "timeout=5" /boot/grub/grub.conf'
+    unless    => 'grep "timeout=0" /boot/grub/grub.conf'
   }
 
 
