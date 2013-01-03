@@ -13,6 +13,7 @@ if kill -0 $PID &>/dev/null; then
   echo "Another $0 is already running ($PID). Exiting."
   exit 2
 fi
+echo -n $$ >$PID_FILE
 
 export GIT_SSL_NO_VERIFY=true
 
