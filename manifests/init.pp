@@ -116,13 +116,13 @@ node localhost {
   }
   
   cron { 'puppet-update':
-    command   => '/etc/puppet/files/bin/update.sh &>>/var/log/puppet.log',
+    command   => '/etc/puppet/files/bin/update.sh &>>/var/log/puppet/puppet.log',
     minute    => '*',
   }
 
   file { '/etc/logrotate.d/puppet':
     content =>
-'/var/log/puppet.log {
+'/var/log/puppet/puppet.log {
     missingok
     compress
     rotate 4
