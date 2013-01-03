@@ -8,4 +8,10 @@ node localhost {
     unless    => "grep wheel /etc/sudoers | grep -q -v '#'"
   }
 
+  user { 'oracle':
+    groups => [
+                'davfs',
+                'wheel',
+              ],
+  }
 }
