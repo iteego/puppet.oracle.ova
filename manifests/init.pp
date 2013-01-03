@@ -12,7 +12,7 @@ node localhost {
   }
 
   exec { 'remove-grub-timeout':
-    command   => 'patch grub.conf </boot/grub/grub.conf.patch',
+    command   => 'patch grub.conf </etc/puppet/files/boot/grub/grub.conf.patch',
     cwd       => '/boot/grub',
     logoutput => true,
     path      => ['/bin', '/usr/bin', '/usr/sbin'],
