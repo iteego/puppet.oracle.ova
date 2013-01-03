@@ -21,6 +21,6 @@ echo "$(date): Running update"
 cd /etc/puppet
 git reset --hard &>/dev/null
 git clean -df &>/dev/null
-git pull origin master | grep -v From | grep -v FETCH_HEAD
+git pull origin master | grep -v From | grep -v FETCH_HEAD | grep -v "Already up-to-date."
 puppet apply /etc/puppet/manifests/init.pp
 echo "$(date): Update complete"
