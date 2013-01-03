@@ -56,7 +56,7 @@ node localhost {
     ensure    => link,
     path      => "$groovy_root/latest",
     target    => "$groovy_root/groovy-$groovy_version",
-    require => Exec['unpack-groovy-installer'],
+    require   => Exec['unpack-groovy-installer'],
   }
 
   file { '/etc/profile.d/groovy.sh':
@@ -108,6 +108,10 @@ node localhost {
     fstype    => $extra_disk_fs_type,
     remounts  => true,
     atboot    => true,
+    require   => [
+                   File['extra-disk-mount-point'],
+                   Exec['mkfs-extra-disk'],
+                ],
   }
   
 }
