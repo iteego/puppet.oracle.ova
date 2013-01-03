@@ -22,40 +22,40 @@ node localhost {
   # Install Groovy
   $groovy_version="2.0.6"
   $groovy_root="/usr/groovy"
-  $groovy_installer="groovy-binary-$::groovy_version.zip"
-  $groovy_installer_path="$::groovy_root/downloads/$::groovy_installer"
+  $groovy_installer="groovy-binary-$groovy_version.zip"
+  $groovy_installer_path="$groovy_root/downloads/$groovy_installer"
 
   file { 'groovy-downloads-dir':
-    path      => "$::groovy_root/downloads",
+    path      => "$groovy_root/downloads",
     ensure    => directory,
   }
 
   exec { 'download-groovy':
-    command   => "wget -O $::groovy_installer_path http://dist.groovy.codehaus.org/distributions/$::groovy_installer",
+    command   => "wget -O $groovy_installer_path http://dist.groovy.codehaus.org/distributions/$groovy_installer",
     logoutput => true,
     path      => ['/bin', '/usr/bin', '/usr/sbin'],
-    creates   => "$::groovy_installer_path",
+    creates   => "$groovy_installer_path",
     require => File['groovy-downloads-dir'],
   }
 
   exec { 'unpack-groovy-installer':
-    command   => "unzip $::groovy_installer_path",
-    cwd       => "$::groovy_root",
+    command   => "unzip $groovy_installer_path",
+    cwd       => "$groovy_root",
     logoutput => true,
     path      => ['/bin', '/usr/bin', '/usr/sbin'],
-    creates   => "$::groovy_root/groovy-$::groovy_version",
+    creates   => "$groovy_root/groovy-$groovy_version",
     require => Exec['download-groovy'],
   }
 
   file { 'groovy-home-link':
     ensure    => link,
-    path      => "$::groovy_root/latest",
-    target    => "$::groovy_root/groovy-$::groovy_version",
+    path      => "$groovy_root/latest",
+    target    => "$groovy_root/groovy-$groovy_version",
     require => Exec['unpack-groovy-installer'],
   }
 
   file { '/etc/profile.d/groovy.sh':
-    content => "export GROOVY_HOME=$::groovy_root/latest;
+    content => "export GROOVY_HOME=$groovy_root/latest;
                 export PATH=$GROOVY_HOME/bin:\$PATH",
   }
 
