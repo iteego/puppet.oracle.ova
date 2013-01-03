@@ -11,6 +11,15 @@ node localhost {
     unless    => "grep wheel /etc/sudoers | grep -q -v '#'"
   }
 
+  exec { 'remove-grub-timeout':
+    command   => 'patch grub.conf </boot/grub/grub.conf.patch',
+    cwd       => '/boot/grub',
+    logoutput => true,
+    path      => ['/bin', '/usr/bin', '/usr/sbin'],
+    unless    => 'grep "timeout=5" /boot/grub/grub.conf'
+  }
+
+
   exec { 'add-la-alias':
     command   => 'echo "alias la=\"ls -la\"" >>/etc/bashrc',
     logoutput => true,

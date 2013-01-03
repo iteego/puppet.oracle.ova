@@ -1,0 +1,11 @@
+--- grub.conf   2010-10-06 00:11:20.000000000 -0700
++++ grub.conf2  2013-01-03 15:42:23.000000000 -0800
+@@ -8,7 +8,7 @@
+ #          initrd /boot/initrd-version.img
+ #boot=/dev/hda
+ default=0
+-timeout=5
++timeout=0
+ splashimage=(hd0,0)/boot/grub/splash.xpm.gz
+ hiddenmenu
+ title Enterprise Linux Enterprise Linux Server (2.6.18-194.17.1.0.1.el5)
