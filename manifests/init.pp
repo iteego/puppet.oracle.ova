@@ -11,6 +11,13 @@ node localhost {
     unless    => "grep wheel /etc/sudoers | grep -q -v '#'"
   }
 
+  exec { 'add-la-alias':
+    command   => 'echo "alias la=\"ls -la\"" >>/etc/bashrc',
+    logoutput => true,
+    path      => ['/bin', '/usr/bin', '/usr/sbin'],
+    unless    => 'grep -q "alias la=" /etc/bashrc'
+  }
+
   user { 'oracle':
     groups => [
                 'davfs2',
