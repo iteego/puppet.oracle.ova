@@ -8,7 +8,7 @@ fi
 
 cd /etc/yum.repos.d
 wget http://public-yum.oracle.com/public-yum-el5.repo
-rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
 yum install puppet git
 
 rm -fR /etc/puppet
