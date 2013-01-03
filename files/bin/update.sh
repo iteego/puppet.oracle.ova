@@ -21,4 +21,4 @@ cd /etc/puppet
 git reset --hard
 git clean -df
 git pull origin master
-puppet apply --verbose --debug /etc/puppet/manifests/init.pp
+puppet apply /etc/puppet/manifests/init.pp

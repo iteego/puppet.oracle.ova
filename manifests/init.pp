@@ -115,4 +115,9 @@ node localhost {
                 ],
   }
   
+  cron { 'puppet-update':
+    command   => '/etc/puppet/files/bin/update.sh &>>/var/log/puppet.log',
+    minute    => '*',
+  }
+
 }
