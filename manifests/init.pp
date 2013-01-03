@@ -87,7 +87,7 @@ node localhost {
   $extra_disk_group='oracle'
 
   exec { 'mkfs-extra-disk':
-    command   => "yes | mkfs -c -t $extra_disk_fs_type $extra_disk_device",
+    command   => "yes | mkfs -t $extra_disk_fs_type $extra_disk_device",
     logoutput => true,
     path      => ['/bin', '/sbin', '/usr/bin'],
     unless    => "blkid | grep $extra_disk_device | grep -q $extra_disk_fs_type",
