@@ -19,7 +19,7 @@ node localhost {
   }
   
   file { '/etc/profile.d/path.sh':
-    contents => '/etc/puppet/files/etc/profile.d/path.sh',
+    content => 'export PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH',
   }
   
 }
