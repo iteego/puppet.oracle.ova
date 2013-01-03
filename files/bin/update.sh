@@ -18,7 +18,7 @@ echo -n $$ >$PID_FILE
 export GIT_SSL_NO_VERIFY=true
 
 cd /etc/puppet
-git reset --hard
-git clean -df
-git pull origin master
+git reset --hard &>/dev/null
+git clean -df &>/dev/null
+git pull origin master 
 puppet apply /etc/puppet/manifests/init.pp

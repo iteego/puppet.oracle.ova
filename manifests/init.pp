@@ -114,6 +114,10 @@ node localhost {
                    File['extra-disk-mount-point'],
                 ],
   }
+
+  service { 'cron':
+    ensure    => running,
+  }
   
   cron { 'puppet-update':
     command   => '/etc/puppet/files/bin/update.sh &>>/var/log/puppet/puppet.log',
