@@ -91,7 +91,6 @@ node localhost {
     logoutput => true,
     path      => ['/bin', '/sbin'],
     unless    => "blkid | grep $extra_disk_device | grep -q $extra_disk_fs_type",
-    notify    => Mount['extra-disk-mount'],
   }
 
   file { 'extra-disk-mount-point':
