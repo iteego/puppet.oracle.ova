@@ -120,7 +120,7 @@ node localhost {
   }
   
   cron { 'puppet-update':
-    command   => '/etc/puppet/files/bin/update.sh &>>/var/log/puppet/puppet.log',
+    command   => '/etc/puppet/files/bin/update.sh 2>&1 >>/var/log/puppet/puppet.log',
     minute    => '*',
   }
 
