@@ -18,4 +18,8 @@ node localhost {
               ],
   }
   
+  file { '/etc/profile.d/path.sh':
+    contents => '/etc/puppet/files/etc/profile.d/path.sh',
+  }
+  
 }
