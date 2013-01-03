@@ -95,6 +95,7 @@ node localhost {
 
   file { 'extra-disk-mount-point':
     ensure    => directory,
+    recurse   => true,
     path      => $extra_disk_mount_point,
     owner     => $extra_disk_user,
     group     => $extra_disk_group,
