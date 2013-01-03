@@ -25,6 +25,11 @@ node localhost {
   $groovy_installer="groovy-binary-$groovy_version.zip"
   $groovy_installer_path="$groovy_root/downloads/$groovy_installer"
 
+  file { 'groovy-root-dir':
+    path      => "$groovy_root",
+    ensure    => directory,
+  }
+
   file { 'groovy-downloads-dir':
     path      => "$groovy_root/downloads",
     ensure    => directory,
