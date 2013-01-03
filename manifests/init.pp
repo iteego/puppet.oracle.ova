@@ -1,6 +1,6 @@
 node localhost {
 
-  exec { 'sudoers':
+  exec { 'enable-wheel-in-sudoers':
     command   => 'patch sudoers </etc/puppet/files/etc/sudoers.patch',
     cwd       => '/etc',
     logoutput => true,
