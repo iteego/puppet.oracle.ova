@@ -80,7 +80,7 @@ node localhost {
 
   # Ensure that our extra disk is built and mounted
 
-  $extra_disk_device='/dev/hdd'
+  $extra_disk_device='/dev/sda'
   $extra_disk_fs_type='ext4'
   $extra_disk_mount_point='/u00'
   $extra_disk_user='oracle'
