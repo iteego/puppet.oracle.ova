@@ -6,6 +6,8 @@ then
   exit 1
 fi
 
+export GIT_SSL_NO_VERIFY=true
+
 cd /etc/puppet
 git reset --hard
 git clean -df
