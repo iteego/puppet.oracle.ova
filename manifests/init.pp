@@ -105,11 +105,12 @@ node localhost {
     name      => $extra_disk_mount_point,
     device    => $extra_disk_device,
     fstype    => $extra_disk_fs_type,
+    options   => 'defaults',
     remounts  => true,
     atboot    => true,
     require   => [
-                   File['extra-disk-mount-point'],
                    Exec['mkfs-extra-disk'],
+                   File['extra-disk-mount-point'],
                 ],
   }
   
