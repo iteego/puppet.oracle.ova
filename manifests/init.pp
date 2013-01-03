@@ -120,4 +120,15 @@ node localhost {
     minute    => '*',
   }
 
+  file { '/etc/logrotate.d/puppet':
+    content =>
+'/var/log/puppet.log {
+    missingok
+    compress
+    rotate 4
+    dateext
+    notifempty
+}',
+  }
+
 }
