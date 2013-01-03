@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 PID_FILE=/var/run/update.pid
 
