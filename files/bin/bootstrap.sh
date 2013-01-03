@@ -12,4 +12,4 @@ rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
 yum -y install puppet git
 
 rm -fR /etc/puppet
-git clone https://github.com/iteego/puppet.oracle.ova.git /etc/puppet
+env GIT_SSL_NO_VERIFY=true git clone https://github.com/iteego/puppet.oracle.ova.git /etc/puppet
