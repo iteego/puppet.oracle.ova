@@ -1,9 +1,11 @@
---- .bashrc     2012-05-22 15:12:01.000000000 -0700
-+++ .bashrc2    2013-01-03 23:05:09.000000000 -0800
-@@ -16,6 +16,4 @@
+--- .bashrc     2013-01-03 23:25:29.000000000 -0800
++++ .bashrc2    2013-01-03 23:22:17.000000000 -0800
+@@ -16,5 +16,6 @@
  export CLASSPATH
  export XDB_HOL="/home/oracle/Desktop/Database*/XMLDB*/2011"
 
+-/sbin/ifconfig | grep "inet addr"
 -cat ~/Desktop/README.txt
--
- /sbin/ifconfig | grep "inet addr"
++echo "See README.txt on desktop for information on this vm"
++echo "Network interfaces:
++/sbin/ifconfig | grep "inet Bcast"
