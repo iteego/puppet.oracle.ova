@@ -1,5 +1,14 @@
 #!/bin/bash -e
 
+# The purpose of this script is bring the machine up to a point where:
+#  - git and puppet are installed
+#  - puppet git repo is checked out into /etc/puppet
+#  - puppet apply is triggered (update.sh)
+#
+# Important to note that absolutely nothing else should be done in this script.
+# The rest should be contained in the puppet manifests.
+#
+
 if [ $(id -u) -ne 0 ];
 then
   echo "You must be root to run this script ($0). Exiting."

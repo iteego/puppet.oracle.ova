@@ -11,6 +11,8 @@ node localhost {
     unless    => "grep wheel /etc/sudoers | grep -q -v '#'"
   }
 
+  #TODO: consider replacing the patch method with a sed command, like so:
+  #sed -ie '/^\[Section B\]/,/^\[.*\]/s/^\(\timeout[ \t]*=[ \t]*\).*$/\10/' /boot/grub/grub.conf
   exec { 'remove-grub-timeout':
     command   => 'patch grub.conf </etc/puppet/files/boot/grub/grub.conf.patch',
     cwd       => '/boot/grub',
@@ -124,12 +126,8 @@ node localhost {
                 ],
   }
 
-  service { 'cron':
-    ensure    => running,
-  }
-  
   cron { 'puppet-update':
-    command   => '/etc/puppet/files/bin/update.sh 2>&1 >>/var/log/puppet/puppet.log',
+    command   => '[ -e /etc/puppet/DISABLE-AUTO-UPDATE ] || /etc/puppet/files/bin/update.sh 2>&1 >>/var/log/puppet/puppet.log',
     minute    => '*',
   }
 
