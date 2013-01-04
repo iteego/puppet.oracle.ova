@@ -17,5 +17,5 @@ export CLASSPATH
 export XDB_HOL="/home/oracle/Desktop/Database*/XMLDB*/2011"
 
 echo "See README.txt on desktop for information on this vm"
-echo "Network interfaces:
-/sbin/ifconfig | grep "inet Bcast"
+echo "Network interfaces:"
+/sbin/ifconfig | grep "Bcast"
