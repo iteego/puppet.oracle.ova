@@ -22,10 +22,10 @@ node localhost {
   }
 
   file { 'remove-terminal-nag':
-    source    => '/etc/puppet/files/home/oracle/.bashrc'
-    path      => '/home/oracle/.bashrc'
-    owner     => 'oracle'
-    group     => 'oracle'
+    source    => '/etc/puppet/files/home/oracle/.bashrc',
+    path      => '/home/oracle/.bashrc',
+    owner     => 'oracle',
+    group     => 'oracle',
   }
 
   exec { 'add-la-alias':
