@@ -16,6 +16,6 @@ CLASSPATH=$ORACLE_HOME/ucp/lib/ucp.jar:$ORACLE_HOME/jdbc/lib/ojdbc6.jar:$CLASSPA
 export CLASSPATH
 export XDB_HOL="/home/oracle/Desktop/Database*/XMLDB*/2011"
 
-echo "See README.txt on desktop for information on this vm"
+echo "See ~/Desktop/README.txt for details on this vm"
 echo "Network interfaces:"
 /sbin/ifconfig | grep "Bcast"
