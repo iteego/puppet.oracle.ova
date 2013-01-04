@@ -11,14 +11,12 @@ node localhost {
     unless    => "grep wheel /etc/sudoers | grep -q -v '#'"
   }
 
-  #TODO: consider replacing the patch method with a sed command, like so:
-  #sed -ie '/^\[Section B\]/,/^\[.*\]/s/^\(\timeout[ \t]*=[ \t]*\).*$/\10/' /boot/grub/grub.conf
   exec { 'remove-grub-timeout':
-    command   => 'patch grub.conf </etc/puppet/files/boot/grub/grub.conf.patch',
+    command   => 'sed -ie \'s/^\(timeout=\)[^\s]*$/\10/\' grub.conf',
     cwd       => '/boot/grub',
     logoutput => true,
     path      => ['/bin', '/usr/bin', '/usr/sbin'],
-    unless    => 'grep "timeout=0" /boot/grub/grub.conf'
+    unless    => 'grep "timeout=0" grub.conf'
   }
 
   file { 'remove-terminal-nag':
