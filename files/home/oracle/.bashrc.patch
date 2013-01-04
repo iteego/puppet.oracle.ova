@@ -1,0 +1,9 @@
+--- .bashrc     2012-05-22 15:12:01.000000000 -0700
++++ .bashrc2    2013-01-03 23:05:09.000000000 -0800
+@@ -16,6 +16,4 @@
+ export CLASSPATH
+ export XDB_HOL="/home/oracle/Desktop/Database*/XMLDB*/2011"
+
+-cat ~/Desktop/README.txt
+-
+ /sbin/ifconfig | grep "inet addr"
