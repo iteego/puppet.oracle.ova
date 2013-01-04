@@ -4,11 +4,11 @@ node localhost {
   # for type references
 
   exec { 'enable-wheel-in-sudoers':
-    command   => 'patch sudoers </etc/puppet/files/etc/sudoers.patch',
+    command   => 'sed -ie \'s/^#\(.*wheel.*NOPASSWD.*\)/\1/\' sudoers',
     cwd       => '/etc',
     logoutput => true,
     path      => ['/bin', '/usr/bin', '/usr/sbin'],
-    unless    => "grep wheel /etc/sudoers | grep -q -v '#'"
+    onlyif    => "grep -q -E '^#.*wheel.*NOPASSWD' sudoers"
   }
 
   exec { 'remove-grub-timeout':
