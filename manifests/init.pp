@@ -21,14 +21,12 @@ node localhost {
     unless    => 'grep "timeout=0" /boot/grub/grub.conf'
   }
 
-  exec { 'remove-terminal-nag':
-    command   => 'patch .bashrc </etc/puppet/files/home/oracle/.bashrc.patch',
-    cwd       => '/home/oracle',
-    logoutput => true,
-    path      => ['/bin', '/usr/bin', '/usr/sbin'],
-    onlyif    => 'grep "cat ~/Desktop/README.txt" .bashrc'
+  file { 'remove-terminal-nag':
+    source    => '/etc/puppet/files/home/oracle/.bashrc'
+    path      => '/home/oracle/.bashrc'
+    owner     => 'oracle'
+    group     => 'oracle'
   }
-
 
   exec { 'add-la-alias':
     command   => 'echo "alias la=\"ls -la\"" >>/etc/bashrc',
