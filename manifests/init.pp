@@ -1,12 +1,13 @@
 node localhost {
 
-  package {
-    [
-      'htop',
-      'iftop',
-    ]:
-    ensure => installed,
-  }
+# yum not behaving, commenting out
+#  package {
+#    [
+#      'htop',
+#      'iftop',
+#    ]:
+#    ensure => installed,
+#  }
 
   # See http://docs.puppetlabs.com/references/latest/type.html
   # for type references
