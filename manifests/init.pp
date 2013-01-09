@@ -1,5 +1,13 @@
 node localhost {
-  
+
+  package {
+    [
+      'htop',
+      'iftop',
+    ]:
+    ensure => installed,
+  }
+
   # See http://docs.puppetlabs.com/references/latest/type.html
   # for type references
 
@@ -87,7 +95,7 @@ node localhost {
                 'wheel',
               ],
   }
-  
+
   file { '/etc/profile.d/path.sh':
     content => 'export PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH',
   }
