@@ -1,5 +1,23 @@
-puppet.oracle.ova
-=================
+## License
+    iteego/puppet.oracle.ova: puppet manifest repository for setup of 
+                              standard oracle db virtualbox appliance.
+    
+     Copyright 2011-2012 Iteego, Inc.
+     Author: Marcus Pemer <marcus@iteego.com>
+    
+     iteego/puppet.oracle.ova is free software: you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation, either version 3 of the License, or
+     (at your option) any later version.
+     iteego/puppet.oracle.ova is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+    
+     You should have received a copy of the GNU General Public License
+     along with iteego/puppet.oracle.ova.  If not, see <http://www.gnu.org/licenses/>.
+
+## iteego/puppet.oracle.ova
 
 Puppet repository containing system configuration for *Oracle_Developer_Day VirtualBox Appliance*
 
